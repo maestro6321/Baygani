@@ -1,0 +1,8 @@
+E:\dev\C#\Baygani\Baygani\bin\Debug\Baygani.exe.config
+E:\dev\C#\Baygani\Baygani\bin\Debug\Baygani.exe
+E:\dev\C#\Baygani\Baygani\bin\Debug\Baygani.pdb
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.csprojResolveAssemblyReference.cache
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Properties.Resources.resources
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.csproj.GenerateResource.Cache
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.exe
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.pdb
