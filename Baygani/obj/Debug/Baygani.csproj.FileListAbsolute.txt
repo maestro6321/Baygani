@@ -6,3 +6,11 @@ E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Properties.Resources.resources
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.csproj.GenerateResource.Cache
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.exe
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.pdb
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Form1.resources
+E:\dev\C#\Baygani\Baygani\bin\Debug\MetroFramework.Design.dll
+E:\dev\C#\Baygani\Baygani\bin\Debug\MetroFramework.dll
+E:\dev\C#\Baygani\Baygani\bin\Debug\MetroFramework.Fonts.dll
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.Edarat.resources
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.NewLetter.resources
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.Attachment.resources
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.DefaultAttachFolder.resources
