@@ -97,12 +97,14 @@
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.textBoxPatch);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(496, 196);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(496, 196);
             this.Name = "DefaultAttachFolder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DefaultAttachFolder";
             this.Load += new System.EventHandler(this.DefaultAttachFolder_Load);
             this.ResumeLayout(false);

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using Baygani.General;
 using System.Data.SqlClient;
 using Baygani.Screens;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dictionary;
 
 namespace Baygani
 {
@@ -118,6 +120,96 @@ namespace Baygani
         {
             DefaultAttachFolder daf = new DefaultAttachFolder();
             daf.ShowDialog();
+        }
+
+        private void لیستواحدهاToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vahedha v = new Vahedha();
+            v.ShowDialog();
+        }
+
+        private void خروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult a = new DialogResult();
+            a = MessageBox.Show("آیا مایل به خروج از برنامه می باشید ؟", "خروج", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (a == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void گزارشکلینامههاToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (designReports.CheckState == CheckState.Checked)
+            {
+                StiReport report = new StiReport();
+                report.Load("Report/ReportAll.mrt");
+                ((StiSqlDatabase)report.Dictionary.Databases["MS SQL"]).ConnectionString = ApplicationSetting.ConnectionString();
+                report.Compile();
+                report.Design();
+            }
+            else
+            {
+                StiReport report = new StiReport();
+                report.Load("Report/ReportAll.mrt");
+                ((StiSqlDatabase)report.Dictionary.Databases["MS SQL"]).ConnectionString = ApplicationSetting.ConnectionString();
+                report.Compile();
+                report.ShowWithRibbonGUI();
+            }
+        }
+
+        private void گزارشنامههایصادرهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (designReports.CheckState == CheckState.Checked)
+            {
+                StiReport report = new StiReport();
+                report.Load("Report/ReportByType.mrt");
+                ((StiSqlDatabase)report.Dictionary.Databases["MS SQL"]).ConnectionString = ApplicationSetting.ConnectionString();
+                report.Compile();
+                report.Design();
+            }
+            else
+            {
+                StiReport report = new StiReport();
+                report.Load("Report/ReportByType.mrt");
+                ((StiSqlDatabase)report.Dictionary.Databases["MS SQL"]).ConnectionString = ApplicationSetting.ConnectionString();
+                report.Compile();
+                report["@id_type"] = 2;
+                report.ShowWithRibbonGUI();
+            }
+        }
+
+        private void designReports_Click(object sender, EventArgs e)
+        {
+            if (designReports.CheckState == CheckState.Checked)
+            {
+                designReports.CheckState = CheckState.Unchecked;
+            }
+            else
+            {
+                designReports.CheckState = CheckState.Checked;
+            }
+        }
+
+        private void گزارشنامههایواردهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (designReports.CheckState == CheckState.Checked)
+            {
+                StiReport report = new StiReport();
+                report.Load("Report/ReportByType.mrt");
+                ((StiSqlDatabase)report.Dictionary.Databases["MS SQL"]).ConnectionString = ApplicationSetting.ConnectionString();
+                report.Compile();
+                report.Design();
+            }
+            else
+            {
+                StiReport report = new StiReport();
+                report.Load("Report/ReportByType.mrt");
+                ((StiSqlDatabase)report.Dictionary.Databases["MS SQL"]).ConnectionString = ApplicationSetting.ConnectionString();
+                report.Compile();
+                report["@id_type"] = 1;
+                report.ShowWithRibbonGUI();
+            }
         }
     }
 }

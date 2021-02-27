@@ -184,7 +184,7 @@
             this.MinimizeBox = false;
             this.Name = "Attachment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Attachment";
+            this.Text = "پیوست ها";
             this.Load += new System.EventHandler(this.Attachment_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

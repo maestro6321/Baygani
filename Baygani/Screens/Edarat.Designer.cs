@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
+            this.buttonNew = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.buttonDelete = new System.Windows.Forms.Button();
+            this.buttonClose = new System.Windows.Forms.Button();
             this.EdaratlistBox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textBoxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(173, 12);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(192, 26);
-            this.textBox1.TabIndex = 1;
+            this.textBoxName.Location = new System.Drawing.Point(173, 12);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.textBoxName.Size = new System.Drawing.Size(192, 26);
+            this.textBoxName.TabIndex = 1;
             // 
             // label1
             // 
@@ -54,41 +55,45 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "نام اداره";
             // 
-            // button4
+            // buttonNew
             // 
-            this.button4.Location = new System.Drawing.Point(330, 149);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 29);
-            this.button4.TabIndex = 11;
-            this.button4.Text = "جدید";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonNew.Location = new System.Drawing.Point(330, 149);
+            this.buttonNew.Name = "buttonNew";
+            this.buttonNew.Size = new System.Drawing.Size(100, 29);
+            this.buttonNew.TabIndex = 11;
+            this.buttonNew.Text = "جدید";
+            this.buttonNew.UseVisualStyleBackColor = true;
+            this.buttonNew.Click += new System.EventHandler(this.buttonNew_Click);
             // 
-            // button5
+            // buttonSave
             // 
-            this.button5.Location = new System.Drawing.Point(224, 148);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(100, 29);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "ذخیره";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonSave.Location = new System.Drawing.Point(224, 148);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(100, 29);
+            this.buttonSave.TabIndex = 11;
+            this.buttonSave.Text = "ذخیره";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // button6
+            // buttonDelete
             // 
-            this.button6.Location = new System.Drawing.Point(118, 148);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(100, 29);
-            this.button6.TabIndex = 11;
-            this.button6.Text = "حذف";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonDelete.Location = new System.Drawing.Point(118, 148);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(100, 29);
+            this.buttonDelete.TabIndex = 11;
+            this.buttonDelete.Text = "حذف";
+            this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // button7
+            // buttonClose
             // 
-            this.button7.Location = new System.Drawing.Point(12, 148);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(100, 29);
-            this.button7.TabIndex = 11;
-            this.button7.Text = "انصراف";
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonClose.Location = new System.Drawing.Point(12, 148);
+            this.buttonClose.Name = "buttonClose";
+            this.buttonClose.Size = new System.Drawing.Size(100, 29);
+            this.buttonClose.TabIndex = 11;
+            this.buttonClose.Text = "انصراف";
+            this.buttonClose.UseVisualStyleBackColor = true;
+            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
             // 
             // EdaratlistBox
             // 
@@ -96,8 +101,10 @@
             this.EdaratlistBox.ItemHeight = 18;
             this.EdaratlistBox.Location = new System.Drawing.Point(12, 12);
             this.EdaratlistBox.Name = "EdaratlistBox";
+            this.EdaratlistBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.EdaratlistBox.Size = new System.Drawing.Size(155, 130);
             this.EdaratlistBox.TabIndex = 12;
+            this.EdaratlistBox.Click += new System.EventHandler(this.EdaratlistBox_Click);
             // 
             // Edarat
             // 
@@ -105,13 +112,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(440, 187);
             this.Controls.Add(this.EdaratlistBox);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonClose);
+            this.Controls.Add(this.buttonDelete);
+            this.Controls.Add(this.buttonSave);
+            this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxName);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -125,12 +133,12 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button buttonNew;
+        private System.Windows.Forms.Button buttonSave;
+        private System.Windows.Forms.Button buttonDelete;
+        private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.ListBox EdaratlistBox;
     }
 }

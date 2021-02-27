@@ -32,6 +32,7 @@ namespace Baygani.Screens
                 dataGridView1.DataSource = LoadAllData();
                 GetDefaultFolder();
                 label5.Text = Shomare_Name;
+                this.Text = Shomare_Name+ " "+"پیوست های نامه ";
             }
             catch (Exception)
             {

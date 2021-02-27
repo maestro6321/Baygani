@@ -14,12 +14,19 @@ namespace Baygani.Screens
 {
     public partial class Edarat : Form
     {
+        public int Id_Edare;
+        public string name_Edare;
         public Edarat()
         {
             InitializeComponent();
         }
 
         private void Edarat_Load(object sender, EventArgs e)
+        {
+            loadlistbox();
+        }
+
+        private void loadlistbox()
         {
             EdaratlistBox.DataSource = GetAllData();
             EdaratlistBox.DisplayMember = "name_edare";
@@ -41,6 +48,85 @@ namespace Baygani.Screens
             return dtrecord;
         }
 
+        private void EdaratlistBox_Click(object sender, EventArgs e)
+        {
+            Id_Edare =Convert.ToInt32( EdaratlistBox.SelectedValue.ToString());
+            textBoxName.Text = EdaratlistBox.Text;
+            name_Edare = textBoxName.Text;
+        }
 
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            if (Id_Edare > 0 || textBoxName.Text != "")
+            {
+                name_Edare = textBoxName.Text;
+                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_tblEdarat_update", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@name_edare", name_Edare);
+                        cmd.Parameters.AddWithValue("@id", Id_Edare);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Id_Edare = 0;
+                name_Edare = null;
+                textBoxName.Text = "";
+                loadlistbox();
+            }
+        }
+
+        private void buttonNew_Click(object sender, EventArgs e)
+        {
+            if(textBoxName.Text != "")
+            {
+                name_Edare = textBoxName.Text;
+                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                {
+                    using (SqlCommand cmd = new SqlCommand("sp_tblEdarat_insert", con))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@name_edare", name_Edare);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Id_Edare = 0;
+                name_Edare = null;
+                textBoxName.Text = "";
+                loadlistbox();
+            }else
+            {
+                MessageBox.Show("sadsadasdsad");
+            }
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (Id_Edare > 0)
+            {
+                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                {
+                    using (SqlCommand cmd = new SqlCommand("delete from tblEdarat where id="+Convert.ToString(Id_Edare), con))
+                    {
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Id_Edare = 0;
+                name_Edare = null;
+                loadlistbox();
+            }
+        }
     }
 }

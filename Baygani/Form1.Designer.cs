@@ -51,6 +51,11 @@
             this.تغییرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.لیستپیوستهاینامهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.حذفنامهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.گزارشکلینامههاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.گزارشنامههایصادرهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.گزارشنامههایواردهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.designReports = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -131,6 +136,7 @@
             this.خروجToolStripMenuItem.Name = "خروجToolStripMenuItem";
             this.خروجToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
             this.خروجToolStripMenuItem.Text = "خروج از سیستم";
+            this.خروجToolStripMenuItem.Click += new System.EventHandler(this.خروجToolStripMenuItem_Click);
             // 
             // اطلاعاتپایهToolStripMenuItem
             // 
@@ -153,6 +159,7 @@
             this.لیستواحدهاToolStripMenuItem.Name = "لیستواحدهاToolStripMenuItem";
             this.لیستواحدهاToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.لیستواحدهاToolStripMenuItem.Text = "لیست واحد ها";
+            this.لیستواحدهاToolStripMenuItem.Click += new System.EventHandler(this.لیستواحدهاToolStripMenuItem_Click);
             // 
             // عملیاتToolStripMenuItem
             // 
@@ -171,6 +178,12 @@
             // 
             // گزارشاتToolStripMenuItem
             // 
+            this.گزارشاتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.گزارشکلینامههاToolStripMenuItem,
+            this.گزارشنامههایصادرهToolStripMenuItem,
+            this.گزارشنامههایواردهToolStripMenuItem,
+            this.toolStripMenuItem2,
+            this.designReports});
             this.گزارشاتToolStripMenuItem.Name = "گزارشاتToolStripMenuItem";
             this.گزارشاتToolStripMenuItem.Size = new System.Drawing.Size(60, 19);
             this.گزارشاتToolStripMenuItem.Text = "گزارشات";
@@ -234,6 +247,39 @@
             this.حذفنامهToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.حذفنامهToolStripMenuItem.Text = "حذف نامه";
             // 
+            // گزارشکلینامههاToolStripMenuItem
+            // 
+            this.گزارشکلینامههاToolStripMenuItem.Name = "گزارشکلینامههاToolStripMenuItem";
+            this.گزارشکلینامههاToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.گزارشکلینامههاToolStripMenuItem.Text = "گزارش کلی نامه ها";
+            this.گزارشکلینامههاToolStripMenuItem.Click += new System.EventHandler(this.گزارشکلینامههاToolStripMenuItem_Click);
+            // 
+            // گزارشنامههایصادرهToolStripMenuItem
+            // 
+            this.گزارشنامههایصادرهToolStripMenuItem.Name = "گزارشنامههایصادرهToolStripMenuItem";
+            this.گزارشنامههایصادرهToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.گزارشنامههایصادرهToolStripMenuItem.Text = "گزارش نامه های صادره";
+            this.گزارشنامههایصادرهToolStripMenuItem.Click += new System.EventHandler(this.گزارشنامههایصادرهToolStripMenuItem_Click);
+            // 
+            // گزارشنامههایواردهToolStripMenuItem
+            // 
+            this.گزارشنامههایواردهToolStripMenuItem.Name = "گزارشنامههایواردهToolStripMenuItem";
+            this.گزارشنامههایواردهToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.گزارشنامههایواردهToolStripMenuItem.Text = "گزارش نامه های وارده";
+            this.گزارشنامههایواردهToolStripMenuItem.Click += new System.EventHandler(this.گزارشنامههایواردهToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(182, 6);
+            // 
+            // designReports
+            // 
+            this.designReports.Name = "designReports";
+            this.designReports.Size = new System.Drawing.Size(185, 22);
+            this.designReports.Text = "ویرایش گزارش ها";
+            this.designReports.Click += new System.EventHandler(this.designReports_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -243,8 +289,10 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -281,6 +329,11 @@
         private System.Windows.Forms.ToolStripMenuItem گزارشاتToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem راهنماToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem دربارهسیستمToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem گزارشکلینامههاToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem گزارشنامههایصادرهToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem گزارشنامههایواردهToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem designReports;
     }
 }
 
