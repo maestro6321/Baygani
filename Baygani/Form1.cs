@@ -62,6 +62,7 @@ namespace Baygani
         {
             NewLetter nl = new NewLetter();
             nl.ShowDialog();
+            dataGridView1.DataSource = GetAllData();
         }
 
         private void بروزرسانیToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,12 +70,6 @@ namespace Baygani
             dataGridView1.DataSource = GetAllData();
         }
 
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            
-
-
-        }
 
         private void تغییرToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -86,6 +81,7 @@ namespace Baygani
                     nl.LetterID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value);
                     nl.IsUpdate = true;
                     nl.ShowDialog();
+                    dataGridView1.DataSource = GetAllData();
                 }
                 catch (Exception)
                 {
@@ -210,6 +206,46 @@ namespace Baygani
                 report["@id_type"] = 1;
                 report.ShowWithRibbonGUI();
             }
+        }
+
+        private void حذفنامهToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void حذفنامهToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (dataGridView1.Rows.Count > 0)
+            {
+                DialogResult a = new DialogResult();
+                a = MessageBox.Show("هستید ؟" + " " + dataGridView1.SelectedRows[0].Cells[1].Value.ToString() + " " + "آیا مایل به حذف نامه","حذف نامه",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                if (a == DialogResult.Yes)
+                {
+                    try
+                    {
+                        using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                        {
+                            using (SqlCommand cmd = new SqlCommand("delete from tblBayegani where id=" + dataGridView1.SelectedRows[0].Cells[0].Value.ToString(), con))
+                            {
+                                con.Open();
+                                cmd.ExecuteNonQuery();
+                            }
+                        }
+                        MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dataGridView1.DataSource = GetAllData();
+                    }
+                    catch (Exception ex)
+                    {
+                       MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+
+        }
+
+        private void buttonFilter_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

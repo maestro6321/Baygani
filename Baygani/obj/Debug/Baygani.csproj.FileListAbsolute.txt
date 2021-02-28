@@ -50,3 +50,4 @@ E:\dev\C#\Baygani\Baygani\bin\Debug\Stimulsoft.Report.WebViewer.xml
 E:\dev\C#\Baygani\Baygani\bin\Debug\Stimulsoft.Report.Win.pdb
 E:\dev\C#\Baygani\Baygani\bin\Debug\Stimulsoft.Report.Win.xml
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.csprojResolveAssemblyReference.cache
+E:\dev\C#\Baygani\Baygani\bin\Debug\MetroFramework.dll

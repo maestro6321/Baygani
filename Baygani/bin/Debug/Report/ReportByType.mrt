@@ -299,7 +299,6 @@
         </Table1>
         <Table2 Ref="19" type="Stimulsoft.Report.Components.Table.StiTable" isKey="true">
           <Brush>Transparent</Brush>
-          <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,4.2,20,0.8</ClientRectangle>
           <ColumnCount>9</ColumnCount>
           <Components isList="true" count="9">
@@ -477,7 +476,7 @@
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName isNull="true" />
-          <DataSourceName>ups_SelectAllLetterForDataGridView</DataSourceName>
+          <DataSourceName>ups_SelectAllLetterByType</DataSourceName>
           <Filters isList="true" count="0" />
           <MinHeight>0.2</MinHeight>
           <Name>Table2</Name>
@@ -513,10 +512,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>2/27/2021 11:06:31 AM</ReportChanged>
+  <ReportChanged>2/27/2021 3:21:19 PM</ReportChanged>
   <ReportCreated>2/26/2021 9:02:47 AM</ReportCreated>
   <ReportFile>E:\dev\C#\Baygani\Baygani\bin\Debug\Report\ReportByType.mrt</ReportFile>
-  <ReportGuid>5f7b5619c37d4efc839a1cd612dd1a8f</ReportGuid>
+  <ReportGuid>f81fb05d5df743628a02df0ea09a889b</ReportGuid>
   <ReportImage isNull="true" />
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>

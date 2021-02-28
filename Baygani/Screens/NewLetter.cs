@@ -113,54 +113,68 @@ namespace Baygani.Screens
             {
                 if (IsUpdate)
                 {
-                    using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                    try
                     {
-                        using (SqlCommand cmd = new SqlCommand("sp_tblBayegani_update", con))
+                        using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
                         {
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("@id", LetterID);
-                            cmd.Parameters.AddWithValue("@Shomare_name", LetterNumberTextBox.Text.Trim());
-                            cmd.Parameters.AddWithValue("@tarikh", LetterDateTextBox.Text);
-                            cmd.Parameters.AddWithValue("@title", LetterTitletextBox.Text);
-                            cmd.Parameters.AddWithValue("@id_ferestande", EdareFerestandecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@id_vahed_ferestande", VahedFerestandecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@id_girande", EdareGirandecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@id_vahed_girande", VahedGirandecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@type", TypecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@category", CategorycomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@olaviat", OlaviatcomboBox.SelectedValue);
-                            con.Open();
-                            cmd.ExecuteNonQuery();
+                            using (SqlCommand cmd = new SqlCommand("sp_tblBayegani_update", con))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@id", LetterID);
+                                cmd.Parameters.AddWithValue("@Shomare_name", LetterNumberTextBox.Text.Trim());
+                                cmd.Parameters.AddWithValue("@tarikh", LetterDateTextBox.Text);
+                                cmd.Parameters.AddWithValue("@title", LetterTitletextBox.Text);
+                                cmd.Parameters.AddWithValue("@id_ferestande", EdareFerestandecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@id_vahed_ferestande", VahedFerestandecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@id_girande", EdareGirandecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@id_vahed_girande", VahedGirandecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@type", TypecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@category", CategorycomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@olaviat", OlaviatcomboBox.SelectedValue);
+                                con.Open();
+                                cmd.ExecuteNonQuery();
+                            }
                         }
+                        ResetAllObject();
+                        MessageBox.Show("ثبت نامه با موفقیت انجام شد", "ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
-                    ResetAllObject();
-                    MessageBox.Show("ثبت نامه با موفقیت انجام شد", "ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                    try
                     {
-                        using (SqlCommand cmd = new SqlCommand("sp_tblBayegani_insert", con))
+                        using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
                         {
-                            cmd.CommandType = CommandType.StoredProcedure;
-                            cmd.Parameters.AddWithValue("@Shomare_name", LetterNumberTextBox.Text.Trim());
-                            cmd.Parameters.AddWithValue("@tarikh", LetterDateTextBox.Text);
-                            cmd.Parameters.AddWithValue("@title", LetterTitletextBox.Text);
-                            cmd.Parameters.AddWithValue("@id_ferestande", EdareFerestandecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@id_vahed_ferestande", VahedFerestandecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@id_girande", EdareGirandecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@id_vahed_girande", VahedGirandecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@type", TypecomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@category", CategorycomboBox.SelectedValue);
-                            cmd.Parameters.AddWithValue("@olaviat", OlaviatcomboBox.SelectedValue);
-                            con.Open();
-                            cmd.ExecuteNonQuery();
+                            using (SqlCommand cmd = new SqlCommand("sp_tblBayegani_insert", con))
+                            {
+                                cmd.CommandType = CommandType.StoredProcedure;
+                                cmd.Parameters.AddWithValue("@Shomare_name", LetterNumberTextBox.Text.Trim());
+                                cmd.Parameters.AddWithValue("@tarikh", LetterDateTextBox.Text);
+                                cmd.Parameters.AddWithValue("@title", LetterTitletextBox.Text);
+                                cmd.Parameters.AddWithValue("@id_ferestande", EdareFerestandecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@id_vahed_ferestande", VahedFerestandecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@id_girande", EdareGirandecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@id_vahed_girande", VahedGirandecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@type", TypecomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@category", CategorycomboBox.SelectedValue);
+                                cmd.Parameters.AddWithValue("@olaviat", OlaviatcomboBox.SelectedValue);
+                                con.Open();
+                                cmd.ExecuteNonQuery();
+                            }
                         }
+                        ResetAllObject();
+                        MessageBox.Show("ثبت نامه با موفقیت انجام شد", "ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
-                    ResetAllObject();
-                    MessageBox.Show("ثبت نامه با موفقیت انجام شد", "ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
