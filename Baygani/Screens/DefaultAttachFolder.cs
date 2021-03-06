@@ -64,20 +64,27 @@ namespace Baygani.Screens
         {
             if(textBoxPatch.Text != null)
             {
-                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                try
                 {
-                    using(SqlCommand cmd =new SqlCommand("sp_tblOption_update_defaultAttachFolder", con))
+                    using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@id", 1);
-                        cmd.Parameters.AddWithValue("@patch", DefaultFolder);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand("sp_tblOption_update_defaultAttachFolder", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@id", 1);
+                            cmd.Parameters.AddWithValue("@patch", DefaultFolder);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    label1.Text = DefaultFolder;
+                    MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
-                label1.Text = DefaultFolder;
-                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد","", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

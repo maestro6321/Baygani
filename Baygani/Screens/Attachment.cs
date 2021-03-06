@@ -34,10 +34,9 @@ namespace Baygani.Screens
                 label5.Text = Shomare_Name;
                 this.Text = Shomare_Name+ " "+"پیوست های نامه ";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -5,7 +5,6 @@ E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Properties.Resources.resources
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.csproj.GenerateResource.Cache
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.exe
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.pdb
-E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Form1.resources
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.Edarat.resources
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.NewLetter.resources
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.Attachment.resources
@@ -51,3 +50,7 @@ E:\dev\C#\Baygani\Baygani\bin\Debug\Stimulsoft.Report.Win.pdb
 E:\dev\C#\Baygani\Baygani\bin\Debug\Stimulsoft.Report.Win.xml
 E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.csprojResolveAssemblyReference.cache
 E:\dev\C#\Baygani\Baygani\bin\Debug\MetroFramework.dll
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.About.resources
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.Login.resources
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Main.resources
+E:\dev\C#\Baygani\Baygani\obj\Debug\Baygani.Screens.Users.resources

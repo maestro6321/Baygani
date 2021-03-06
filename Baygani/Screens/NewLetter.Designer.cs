@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LetterNumberTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LetterDateTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,15 +50,8 @@
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonReset = new System.Windows.Forms.Button();
+            this.LetterNumberTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // LetterNumberTextBox
-            // 
-            this.LetterNumberTextBox.Location = new System.Drawing.Point(405, 15);
-            this.LetterNumberTextBox.Mask = "PK-00-0000";
-            this.LetterNumberTextBox.Name = "LetterNumberTextBox";
-            this.LetterNumberTextBox.Size = new System.Drawing.Size(129, 26);
-            this.LetterNumberTextBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -184,6 +176,7 @@
             this.TypecomboBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.TypecomboBox.Size = new System.Drawing.Size(95, 26);
             this.TypecomboBox.TabIndex = 2;
+            this.TypecomboBox.SelectedIndexChanged += new System.EventHandler(this.TypecomboBox_SelectedIndexChanged);
             // 
             // label8
             // 
@@ -260,11 +253,19 @@
             this.buttonReset.UseVisualStyleBackColor = true;
             this.buttonReset.Click += new System.EventHandler(this.buttonReset_Click);
             // 
+            // LetterNumberTextBox
+            // 
+            this.LetterNumberTextBox.Location = new System.Drawing.Point(393, 15);
+            this.LetterNumberTextBox.Name = "LetterNumberTextBox";
+            this.LetterNumberTextBox.Size = new System.Drawing.Size(138, 26);
+            this.LetterNumberTextBox.TabIndex = 13;
+            // 
             // NewLetter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(636, 275);
+            this.Controls.Add(this.LetterNumberTextBox);
             this.Controls.Add(this.buttonReset);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
@@ -287,7 +288,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.LetterDateTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.LetterNumberTextBox);
             this.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -303,8 +303,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.MaskedTextBox LetterNumberTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MaskedTextBox LetterDateTextBox;
         private System.Windows.Forms.Label label2;
@@ -327,5 +325,6 @@
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonReset;
+        private System.Windows.Forms.TextBox LetterNumberTextBox;
     }
 }

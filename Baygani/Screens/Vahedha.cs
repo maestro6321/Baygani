@@ -57,25 +57,32 @@ namespace Baygani.Screens
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (Id_Vahed > 0 || textBoxName.Text != "")
+            if (Id_Vahed > 0 && textBoxName.Text != "")
             {
-                name_Vahed = textBoxName.Text;
-                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_tblVahed_update", con))
+                    name_Vahed = textBoxName.Text;
+                    using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@name_vahed", name_Vahed);
-                        cmd.Parameters.AddWithValue("@id", Id_Vahed);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand("sp_tblVahed_update", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@name_vahed", name_Vahed);
+                            cmd.Parameters.AddWithValue("@id", Id_Vahed);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Id_Vahed = 0;
+                    name_Vahed = null;
+                    textBoxName.Text = "";
+                    loadlistbox();
                 }
-                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Id_Vahed = 0;
-                name_Vahed = null;
-                textBoxName.Text = "";
-                loadlistbox();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -83,26 +90,29 @@ namespace Baygani.Screens
         {
             if (textBoxName.Text != "")
             {
-                name_Vahed = textBoxName.Text;
-                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_tblVahed_Insert", con))
+                    name_Vahed = textBoxName.Text;
+                    using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@name_vahed", name_Vahed);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand("sp_tblVahed_Insert", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@name_vahed", name_Vahed);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Id_Vahed = 0;
+                    name_Vahed = null;
+                    textBoxName.Text = "";
+                    loadlistbox();
                 }
-                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Id_Vahed = 0;
-                name_Vahed = null;
-                textBoxName.Text = "";
-                loadlistbox();
-            }
-            else
-            {
-                MessageBox.Show("sadsadasdsad");
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -110,18 +120,25 @@ namespace Baygani.Screens
         {
             if (Id_Vahed > 0)
             {
-                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand("delete from tblVahed where id=" + Convert.ToString(Id_Vahed), con))
+                    using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
                     {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand("delete from tblVahed where id=" + Convert.ToString(Id_Vahed), con))
+                        {
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Id_Vahed = 0;
+                    name_Vahed = null;
+                    loadlistbox();
                 }
-                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Id_Vahed = 0;
-                name_Vahed = null;
-                loadlistbox();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

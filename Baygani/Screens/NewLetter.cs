@@ -59,7 +59,6 @@ namespace Baygani.Screens
                     con.Open();
                     SqlDataReader sdr = cmd.ExecuteReader();
                     dtrecord.Load(sdr);
-
                 }
             }
             return dtrecord;
@@ -139,9 +138,18 @@ namespace Baygani.Screens
                         MessageBox.Show("ثبت نامه با موفقیت انجام شد", "ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
-                    catch (Exception ex)
+                    catch (SqlException ex)
                     {
-                        MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        switch (ex.Number)
+                        {
+                            case 2627:
+                                MessageBox.Show("شماره نامه نمیتواند تکراری باشد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                break;
+
+                            default:
+                                MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                throw;
+                        }
                     }
                 }
                 else
@@ -171,9 +179,18 @@ namespace Baygani.Screens
                         MessageBox.Show("ثبت نامه با موفقیت انجام شد", "ثبت", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
-                    catch (Exception ex)
+                    catch (SqlException ex)
                     {
-                        MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        switch (ex.Number)
+                        {
+                            case 2627:
+                                MessageBox.Show("شماره نامه نمیتواند تکراری باشد", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                break;
+
+                                default:
+                                MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                throw;
+                        }
                     }
                 }
             }
@@ -183,7 +200,7 @@ namespace Baygani.Screens
         {
             for (int i = 0; i < this.Controls.Count; i++)
             {
-                if (Controls[i].GetType() == typeof(TextBox) || Controls[i].GetType() == typeof(ComboBox) || Controls[i].GetType() == typeof(MaskedTextBox))
+                if (Controls[i].GetType() == typeof(TextBox) && Controls[i].GetType() == typeof(ComboBox) && Controls[i].GetType() == typeof(MaskedTextBox))
                 {
                     if (Controls[i].Text == "")
                     {
@@ -214,6 +231,11 @@ namespace Baygani.Screens
                     Controls[i].Text = "";
                 }
             }
+        }
+
+        private void TypecomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

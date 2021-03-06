@@ -57,51 +57,62 @@ namespace Baygani.Screens
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (Id_Edare > 0 || textBoxName.Text != "")
+            if (Id_Edare > 0 && textBoxName.Text != "")
             {
-                name_Edare = textBoxName.Text;
-                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_tblEdarat_update", con))
+                    name_Edare = textBoxName.Text;
+                    using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@name_edare", name_Edare);
-                        cmd.Parameters.AddWithValue("@id", Id_Edare);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand("sp_tblEdarat_update", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@name_edare", name_Edare);
+                            cmd.Parameters.AddWithValue("@id", Id_Edare);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Id_Edare = 0;
+                    name_Edare = null;
+                    textBoxName.Text = "";
+                    loadlistbox();
                 }
-                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Id_Edare = 0;
-                name_Edare = null;
-                textBoxName.Text = "";
-                loadlistbox();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
         private void buttonNew_Click(object sender, EventArgs e)
         {
-            if(textBoxName.Text != "")
+            if (textBoxName.Text != "")
             {
-                name_Edare = textBoxName.Text;
-                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand("sp_tblEdarat_insert", con))
+                    name_Edare = textBoxName.Text;
+                    using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
                     {
-                        cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@name_edare", name_Edare);
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand("sp_tblEdarat_insert", con))
+                        {
+                            cmd.CommandType = CommandType.StoredProcedure;
+                            cmd.Parameters.AddWithValue("@name_edare", name_Edare);
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Id_Edare = 0;
+                    name_Edare = null;
+                    textBoxName.Text = "";
+                    loadlistbox();
                 }
-                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Id_Edare = 0;
-                name_Edare = null;
-                textBoxName.Text = "";
-                loadlistbox();
-            }else
-            {
-                MessageBox.Show("sadsadasdsad");
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -114,18 +125,25 @@ namespace Baygani.Screens
         {
             if (Id_Edare > 0)
             {
-                using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
+                try
                 {
-                    using (SqlCommand cmd = new SqlCommand("delete from tblEdarat where id="+Convert.ToString(Id_Edare), con))
+                    using (SqlConnection con = new SqlConnection(ApplicationSetting.ConnectionString()))
                     {
-                        con.Open();
-                        cmd.ExecuteNonQuery();
+                        using (SqlCommand cmd = new SqlCommand("delete from tblEdarat where id=" + Convert.ToString(Id_Edare), con))
+                        {
+                            con.Open();
+                            cmd.ExecuteNonQuery();
+                        }
                     }
+                    MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Id_Edare = 0;
+                    name_Edare = null;
+                    loadlistbox();
                 }
-                MessageBox.Show("عملیات مورد نظر با موفقیت انجام شد", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Id_Edare = 0;
-                name_Edare = null;
-                loadlistbox();
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
