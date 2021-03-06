@@ -53,3 +53,4 @@ E:\dev\C#\Baygani\Baygani\obj\Release\Baygani.Screens.Vahedha.resources
 E:\dev\C#\Baygani\Baygani\obj\Release\Baygani.csproj.GenerateResource.Cache
 E:\dev\C#\Baygani\Baygani\obj\Release\Baygani.exe
 E:\dev\C#\Baygani\Baygani\obj\Release\Baygani.pdb
+E:\dev\C#\Baygani\Baygani\obj\Release\Baygani.csprojResolveAssemblyReference.cache

@@ -28,13 +28,11 @@ namespace Baygani
         {
             if (ISAdmin())
             {
-                عملیاتToolStripMenuItem.Enabled = true;
                 designReports.Enabled = true;
                 اطلاعاتپایهToolStripMenuItem.Enabled = true;
             }
             else
-            {
-                عملیاتToolStripMenuItem.Enabled = false;
+            { 
                 designReports.Enabled = false;
                 اطلاعاتپایهToolStripMenuItem.Enabled = false;
             }
