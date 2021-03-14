@@ -98,7 +98,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(266, 13);
             this.label2.TabIndex = 6;
-            this.label2.Text = "copyright © 2018 all rights reserved By Ali Nematolahi";
+            this.label2.Text = "copyright © 2021 all rights reserved By Ali Nematolahi";
             // 
             // linkLabel2
             // 
