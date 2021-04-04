@@ -117,5 +117,10 @@ namespace Baygani.Screens
         {
             Application.Exit();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
